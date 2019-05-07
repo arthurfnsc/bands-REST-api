@@ -7,11 +7,8 @@ import org.springframework.stereotype.Service
 @Service
 class BandService {
 
-    fun deleteById(id: String) {
+    fun deleteById(id: String) {}
 
-    }
-
-    fun findAll(): ImmutableList<Band> {
-
-    }
+    fun findAll(): ImmutableList<Band> =
+        ImmutableList.of()
 }
