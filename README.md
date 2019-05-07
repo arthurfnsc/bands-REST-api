@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/arthurfnsc/bands-REST-api.svg?branch=master)](https://travis-ci.org/arthurfnsc/bands-REST-api)
+
 # Bands-REST-API
 
 OpenAPI 3.0 API First, Spring Boot, Kotlin and Gradle project
