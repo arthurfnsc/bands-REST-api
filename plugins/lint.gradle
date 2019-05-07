@@ -3,16 +3,20 @@ apply plugin: "org.jlleitschuh.gradle.ktlint"
 apply plugin: "org.jmailen.kotlinter"
 
 detekt {
-    config = files("$projectDir/configs/detekt/config.yml")
-    filters = ".*test.*,.*/resources/.*,.*/tmp/.*"
-    input = files("$projectDir/src/main/kotlin")
+    profile("main") {
+        config = "$projectDir/configs/detekt/config.yml"
+        filters = ".*test.*,.*/resources/.*,.*/tmp/.*"
+        input = "$projectDir/src/main/kotlin"
+        output = "${buildDir}/reports/detekt"
+    }
 }
 
 kotlinter {
+    experimentalRules = true
     ignoreFailures = false
     indentSize = 4
     continuationIndentSize = 4
-    reporters = ["json"]
+    reporters = ["checkstyle"]
 }
 
 ktlint {
