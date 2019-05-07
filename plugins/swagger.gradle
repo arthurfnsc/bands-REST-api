@@ -1,0 +1,21 @@
+apply plugin: 'org.hidetake.swagger.generator'
+
+
+swaggerSources {
+    server {
+        inputFile = file('src/main/resources/swagger/bands-api_v1.yml')
+        code {
+            configFile = file('src/main/resources/swagger/config_server.json')
+            components = ['models', 'apis', 'supportingFiles']
+            language = 'spring'
+            outputDir = file("$buildDir/generated/swagger-code-server")
+        }
+        ui {
+            options.docExpansion = 'full'
+        }
+    }
+}
+
+compileKotlin.dependsOn generateSwaggerCodeServer
+
+sourceSets.main.java.srcDir "${swaggerSources.server.code.outputDir}/src/main/java"

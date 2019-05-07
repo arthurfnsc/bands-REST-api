@@ -1,0 +1,53 @@
+apply plugin: 'com.github.ben-manes.versions'
+apply plugin: 'org.jetbrains.dokka'
+apply plugin: 'project-report'
+
+dependencyUpdates {
+
+    checkForGradleUpdate = true
+    outputFormatter = "json"
+    outputDir = "build/docs/dependencyUpdates"
+    reportfileName = "report"
+    
+    resolutionStrategy = {
+        componentSelection { rules ->
+            rules.all { ComponentSelection selection ->
+                boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm'].any { qualifier ->
+                    selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
+                }
+                if (rejected) {
+                    selection.reject('Release candidate')
+                }
+            }
+        }
+    }
+}
+
+dokka {
+    outputFormat = 'html'
+    outputDirectory = "$buildDir/reports/docs/dokka"
+
+    // Use default or set to custom path to cache directory
+    // to enable package-list caching
+    // When set to default, caches stored in $USER_HOME/.cache/dokka
+    cacheRoot = 'default'
+
+    impliedPlatforms = ["JVM"]
+
+    // Use to include or exclude non public members.
+    includeNonPublic = false
+
+    jdkVersion = 8
+
+    // Disable linking to online JDK documentation
+    noJdkLink = false
+
+    // Disable linking to online kotlin-stdlib documentation
+    noStdlibLink = false
+
+    // Do not output deprecated members. Applies globally, can be overridden by packageOptions
+    skipDeprecated = false
+
+    // Do not create index pages for empty packages
+    skipEmptyPackages = true
+}

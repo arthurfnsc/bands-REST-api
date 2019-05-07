@@ -1,0 +1,159 @@
+buildscript {
+
+	ext {
+		aptVersion = '0.21'
+		detektVersion = '1.0.0-RC14'
+		dokkaVersion = '0.9.18'
+		kotlinVersion = '1.3.31'
+		kotlinterVersion = '1.23.1'
+		ktlintVersion = '7.4.0'
+		ossIndexVersion = '0.4.11'
+		owaspCheckVersion = '5.0.0-M2'
+		sonarqubeVersion = '2.7'
+		springBootVersion = '2.1.4.RELEASE'
+		swaggerGeneratorVersion = '2.18.0'
+		versionsVersion = '0.21.0'
+
+		kotlinArtifacts = [
+				'kotlin-allopen',
+				'kotlin-noarg',
+				'kotlin-gradle-plugin'
+		]
+	}
+
+	repositories {
+		
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+		
+		jcenter()
+	}
+
+	dependencies {
+
+		kotlinArtifacts.each {
+			artifact -> classpath "org.jetbrains.kotlin:$artifact:$kotlinVersion"
+		}
+
+		classpath "com.github.ben-manes:gradle-versions-plugin:$versionsVersion"
+		classpath "gradle.plugin.net.ossindex:ossindex-gradle-plugin:$ossIndexVersion"
+		classpath "gradle.plugin.org.hidetake:gradle-swagger-generator-plugin:$swaggerGeneratorVersion"
+		classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detektVersion"
+		classpath "net.ltgt.gradle:gradle-apt-plugin:$aptVersion"
+		classpath "org.jetbrains.dokka:dokka-gradle-plugin:$dokkaVersion"
+		classpath "org.jlleitschuh.gradle:ktlint-gradle:$ktlintVersion"
+		classpath "org.jmailen.gradle:kotlinter-gradle:$kotlinterVersion"
+		classpath "org.owasp:dependency-check-gradle:$owaspCheckVersion"
+		classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:$sonarqubeVersion"
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+	}
+}
+
+apply from: 'plugins/kotlin.gradle'
+
+apply from: 'plugins/docs.gradle'
+apply from: 'plugins/ides.gradle'
+apply from: 'plugins/jacoco.gradle'
+apply from: 'plugins/lint.gradle'
+apply from: 'plugins/mapstruct.gradle'
+apply from: 'plugins/security.gradle'
+apply from: 'plugins/sonarqube.gradle'
+apply from: 'plugins/spring-boot.gradle'
+apply from: 'plugins/swagger.gradle'
+
+group = 'br.com.arthurfnsc'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+wrapper {
+	gradleVersion = '5.4.1'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+
+	jcenter()
+	mavenCentral()
+}
+
+ext {
+
+	set('springBootAdminVersion', '2.1.4')
+
+	codecentricImplementationArtifacs = [
+	        'spring-boot-admin-starter-client',
+			'spring-boot-admin-starter-server'
+	]
+
+	kotlinImplementationArtifacts = [
+	        'kotlin-reflect',
+			'kotlin-stdlib-jdk8'
+	]
+
+	springBootImplementationArtifacs = [
+			'spring-boot-starter-actuator',
+			'spring-boot-starter-aop',
+			'spring-boot-starter-cache',
+			'spring-boot-starter-web'
+	]
+
+	springFoxArtifacts = [
+			'springfox-swagger2',
+			'springfox-swagger-ui'
+	]
+
+	mapstructVersion = '1.2.0.Final'
+	springFoxVersion = '2.9.2'
+	swaggerCodeGenVersion = '3.3.4'
+	swaggerUIVersion = '3.10.0'
+}
+
+dependencies {
+
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+	detekt "io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion"
+
+	dokkaRuntime "org.jetbrains.dokka:dokka-fatjar:$dokkaVersion"
+
+	codecentricImplementationArtifacs.each {
+		artifact -> implementation "de.codecentric:$artifact"
+	}
+
+	kotlinImplementationArtifacts.each {
+		artifact -> implementation "org.jetbrains.kotlin:$artifact"
+	}
+
+	springBootImplementationArtifacs.each {
+		artifact -> implementation "org.springframework.boot:$artifact"
+	}
+
+	springFoxArtifacts.each {
+		artifact -> implementation "io.springfox:$artifact:$springFoxVersion"
+	}
+
+	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
+	implementation "org.mapstruct:mapstruct-jdk8:$mapstructVersion"
+
+	kapt "org.mapstruct:mapstruct-processor:$mapstructVersion"
+
+	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.projectreactor:reactor-test'
+
+	swaggerCodegen "org.openapitools:openapi-generator-cli:$swaggerCodeGenVersion"
+	swaggerUI "org.webjars:swagger-ui:$swaggerUIVersion"
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "de.codecentric:spring-boot-admin-dependencies:${springBootAdminVersion}"
+	}
+}

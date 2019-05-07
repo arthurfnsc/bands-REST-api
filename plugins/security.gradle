@@ -1,0 +1,14 @@
+apply plugin: "org.owasp.dependencycheck"
+apply plugin: "net.ossindex.audit"
+
+audit {
+
+    failOnError = false
+    rateLimitAsError = false
+}
+
+dependencyCheck {
+
+    autoUpdate=true
+    format='ALL'
+}
