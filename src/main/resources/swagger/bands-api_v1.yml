@@ -245,6 +245,15 @@ components:
           format: date
       additionalProperties: false
 
+    BandStatus:
+      description: Band BandStatus
+      type: string
+      enum:
+        - BREAK_UP
+        - HIATUS
+        - ON_THE_ROAD
+      additionalProperties: false
+
     Error:
       description: Error
       type: object
@@ -336,13 +345,4 @@ components:
         name:
           description: Member name
           type: string
-      additionalProperties: false
-
-    Status:
-      description: Band BandStatus
-      type: string
-      enum:
-        - BREAK_UP
-        - HIATUS
-        - ON_THE_ROAD
       additionalProperties: false
