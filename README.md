@@ -4,8 +4,6 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/arthurfnsc/bands-REST-api.svg?style=popout)
 [![HitCount](http://hits.dwyl.io/arthurfnsc/bands-REST-api.svg)](http://hits.dwyl.io/arthurfnsc/bands-REST-api)
 ![GitHub last commit](https://img.shields.io/github/last-commit/arthurfnsc/bands-REST-api.svg?style=popout)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/arthurfnsc/bands-REST-api.svg)
-![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/arthurfnsc/bands-REST-api.svg)
 
 ### Activity Master
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/arthurfnsc/bands-REST-api/master.svg)
@@ -30,6 +28,8 @@
 ![GitHub closed issues](https://img.shields.io/github/issues-closed/arthurfnsc/bands-REST-api.svg)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/arthurfnsc/bands-REST-api.svg)](http://isitmaintained.com/project/arthurfnsc/bands-REST-api "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/arthurfnsc/bands-REST-api.svg)](http://isitmaintained.com/project/arthurfnsc/bands-REST-api "Percentage of issues still open")
+![GitHub pull requests](https://img.shields.io/github/issues-pr/arthurfnsc/bands-REST-api.svg)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/arthurfnsc/bands-REST-api.svg)
 
 ## Security
 [![Known Vulnerabilities](https://snyk.io/test/github/arthurfnsc/bands-REST-api/badge.svg?targetFile=build.gradle)](https://snyk.io/test/github/arthurfnsc/bands-REST-api?targetFile=build.gradle)
