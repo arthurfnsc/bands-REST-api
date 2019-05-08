@@ -1,12 +1,41 @@
-[![Build Status](https://travis-ci.org/arthurfnsc/bands-REST-api.svg?branch=master)](https://travis-ci.org/arthurfnsc/bands-REST-api)
-[![CodeCov](https://codecov.io/gh/arthurfnsc/bands-REST-api/branch/master/graph/badge.svg)](https://codecov.io/gh/arthurfnsc/bands-REST-api)
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2795/badge)](https://bestpractices.coreinfrastructure.org/projects/2795)
-[![Gradle Status](https://gradleupdate.appspot.com/arthurfnsc/bands-REST-api/status.svg)](https://gradleupdate.appspot.com/arthurfnsc/bands-REST-api/status)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/arthurfnsc/bands-REST-api.js/graphs/commit-activity)
+
+## Activity
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/arthurfnsc/bands-REST-api.svg?style=popout)
 [![HitCount](http://hits.dwyl.io/arthurfnsc/bands-REST-api.svg)](http://hits.dwyl.io/arthurfnsc/bands-REST-api)
+![GitHub last commit](https://img.shields.io/github/last-commit/arthurfnsc/bands-REST-api.svg?style=popout)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/arthurfnsc/bands-REST-api.svg)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/arthurfnsc/bands-REST-api.svg)
+
+### Activity Master
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/arthurfnsc/bands-REST-api/master.svg)
+
+### Activity Develop
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/arthurfnsc/bands-REST-api/develop.svg)
+
+## Quality
+[![Build Status](https://travis-ci.org/arthurfnsc/bands-REST-api.svg?branch=master)](https://travis-ci.org/arthurfnsc/bands-REST-api)
+[![Build Status](https://scrutinizer-ci.com/g/arthurfnsc/bands-REST-api/badges/build.png?b=master)](https://scrutinizer-ci.com/g/arthurfnsc/bands-REST-api/build-status/master)
+[![CodeCov](https://codecov.io/gh/arthurfnsc/bands-REST-api/branch/master/graph/badge.svg)](https://codecov.io/gh/arthurfnsc/bands-REST-api)
+[![Coverage Status](https://coveralls.io/repos/github/arthurfnsc/bands-REST-api/badge.svg?branch=master)](https://coveralls.io/github/arthurfnsc/bands-REST-api?branch=master)
+![Coverity Scan](https://img.shields.io/coverity/scan/18345.svg)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2795/badge)](https://bestpractices.coreinfrastructure.org/projects/2795)
+[![Maintainability](https://api.codeclimate.com/v1/badges/9da475d2a2181f956573/maintainability)](https://codeclimate.com/github/arthurfnsc/bands-REST-api/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/9da475d2a2181f956573/test_coverage)](https://codeclimate.com/github/arthurfnsc/bands-REST-api/test_coverage)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/arthurfnsc/bands-REST-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/arthurfnsc/bands-REST-api/?branch=master)
+
+### Issues
+![GitHub issues](https://img.shields.io/github/issues/arthurfnsc/bands-REST-api.svg)
+![GitHub closed issues](https://img.shields.io/github/issues-closed/arthurfnsc/bands-REST-api.svg)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/arthurfnsc/bands-REST-api.svg)](http://isitmaintained.com/project/arthurfnsc/bands-REST-api "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/arthurfnsc/bands-REST-api.svg)](http://isitmaintained.com/project/arthurfnsc/bands-REST-api "Percentage of issues still open")
+
+## Security
+[![Known Vulnerabilities](https://snyk.io/test/github/arthurfnsc/bands-REST-api/badge.svg?targetFile=build.gradle)](https://snyk.io/test/github/arthurfnsc/bands-REST-api?targetFile=build.gradle)
 
 # Bands-REST-API
 
-OpenAPI 3.0 API First, Spring Boot, Kotlin and Gradle project
+OpenAPI 3.0 API First, Spring Boot, Kotlin and [![Gradle Status](https://gradleupdate.appspot.com/arthurfnsc/bands-REST-api/status.svg)](https://gradleupdate.appspot.com/arthurfnsc/bands-REST-api/status) project
 
 ## Project execution
 
