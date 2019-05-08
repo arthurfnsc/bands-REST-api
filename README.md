@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cdd4a6584d664e5bb7f08ce7cb53acc9)](https://app.codacy.com/app/arthurfnsc/bands-REST-api?utm_source=github.com&utm_medium=referral&utm_content=arthurfnsc/bands-REST-api&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.org/arthurfnsc/bands-REST-api.svg?branch=master)](https://travis-ci.org/arthurfnsc/bands-REST-api)
 [![CodeCov](https://codecov.io/gh/arthurfnsc/bands-REST-api/branch/master/graph/badge.svg)](https://codecov.io/gh/arthurfnsc/bands-REST-api)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2795/badge)](https://bestpractices.coreinfrastructure.org/projects/2795)
