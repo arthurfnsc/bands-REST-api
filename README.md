@@ -2,6 +2,7 @@
 [![CodeCov](https://codecov.io/gh/arthurfnsc/bands-REST-api/branch/master/graph/badge.svg)](https://codecov.io/gh/arthurfnsc/bands-REST-api)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2795/badge)](https://bestpractices.coreinfrastructure.org/projects/2795)
 [![Gradle Status](https://gradleupdate.appspot.com/arthurfnsc/bands-REST-api/status.svg)](https://gradleupdate.appspot.com/arthurfnsc/bands-REST-api/status)
+[![HitCount](http://hits.dwyl.io/arthurfnsc/bands-REST-api.svg)](http://hits.dwyl.io/arthurfnsc/bands-REST-api)
 
 # Bands-REST-API
 
