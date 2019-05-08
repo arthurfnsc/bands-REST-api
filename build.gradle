@@ -11,7 +11,7 @@ buildscript {
 		owaspCheckVersion = '5.0.0-M2'
 		sonarqubeVersion = '2.7'
 		springBootVersion = '2.1.4.RELEASE'
-		swaggerGeneratorVersion = '2.18.0'
+		swaggerGeneratorVersion = '2.18.1'
 		versionsVersion = '0.21.0'
 
 		kotlinArtifacts = [
