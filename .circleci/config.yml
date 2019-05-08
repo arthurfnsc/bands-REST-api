@@ -2,10 +2,11 @@ version: 2.1
 
 jobs:
   build:
+    working_directory: ~/bands-REST-api
     docker:
-      # specify the version you desire here
       - image: circleci/openjdk:8-jdk
     steps:
+      - checkout
       - run:
           name: Test
           command: |
