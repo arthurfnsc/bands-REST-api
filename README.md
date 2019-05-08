@@ -16,6 +16,7 @@
 ## Quality
 [![Build Status](https://travis-ci.org/arthurfnsc/bands-REST-api.svg?branch=master)](https://travis-ci.org/arthurfnsc/bands-REST-api)
 [![Build Status](https://scrutinizer-ci.com/g/arthurfnsc/bands-REST-api/badges/build.png?b=master)](https://scrutinizer-ci.com/g/arthurfnsc/bands-REST-api/build-status/master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cdd4a6584d664e5bb7f08ce7cb53acc9)](https://app.codacy.com/app/arthurfnsc/bands-REST-api?utm_source=github.com&utm_medium=referral&utm_content=arthurfnsc/bands-REST-api&utm_campaign=Badge_Grade_Dashboard)
 [![CodeCov](https://codecov.io/gh/arthurfnsc/bands-REST-api/branch/master/graph/badge.svg)](https://codecov.io/gh/arthurfnsc/bands-REST-api)
 [![Coverage Status](https://coveralls.io/repos/github/arthurfnsc/bands-REST-api/badge.svg?branch=master)](https://coveralls.io/github/arthurfnsc/bands-REST-api?branch=master)
 ![Coverity Scan](https://img.shields.io/coverity/scan/18345.svg)
