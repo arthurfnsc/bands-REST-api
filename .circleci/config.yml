@@ -1,0 +1,13 @@
+version: 2.1
+
+jobs:
+  build:
+    working_directory: ~/bands-REST-api
+    docker:
+      - image: circleci/openjdk:8-jdk
+    steps:
+      - checkout
+      - run:
+          name: Test
+          command: |
+            ./gradlew test
