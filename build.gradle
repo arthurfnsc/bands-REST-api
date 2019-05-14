@@ -110,7 +110,7 @@ ext {
 
 	mapstructVersion = '1.2.0.Final'
 	springFoxVersion = '2.9.2'
-	swaggerCodeGenVersion = '3.3.4'
+	swaggerCodeGenVersion = '4.0.0'
 	swaggerUIVersion = '3.10.0'
 }
 
