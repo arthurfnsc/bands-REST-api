@@ -6,7 +6,7 @@ swaggerSources {
         inputFile = file('src/main/resources/swagger/bands-api_v1.yml')
         code {
             configFile = file('src/main/resources/swagger/config_server.json')
-            components = ['models', 'apis']
+            components = ['models', 'apis', 'supportingFiles']
             language = 'spring'
             outputDir = file("$buildDir/generated/swagger-code-server")
         }
