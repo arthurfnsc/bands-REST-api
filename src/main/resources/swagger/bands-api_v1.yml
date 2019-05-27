@@ -243,7 +243,6 @@ components:
           description: Entry date update
           type: string
           format: date
-      additionalProperties: false
 
     BandStatus:
       description: Band BandStatus
@@ -252,7 +251,6 @@ components:
         - BREAK_UP
         - HIATUS
         - ON_THE_ROAD
-      additionalProperties: false
 
     Error:
       description: Error
@@ -267,7 +265,6 @@ components:
         description:
           description: Error description.
           type: string
-      additionalProperties: false
 
     Member:
       description: Band Member
@@ -280,7 +277,6 @@ components:
         name:
           description: Member name
           type: string
-      additionalProperties: false
 
     PatchDocument:
       description: A JSONPatch document as defined by RFC 6902
@@ -308,14 +304,12 @@ components:
         from:
           type: string
           description: A string containing a JSON Pointer value.
-      additionalProperties: false
 
     RequestPatchBand:
       description: Request Patch Band
       type: array
       items:
         $ref: "#/components/schemas/PatchDocument"
-      additionalProperties: false
 
     RequestPostBand:
       description: Request Post Band
@@ -334,7 +328,6 @@ components:
           format: date
         status:
           $ref: '#/components/schemas/BandStatus'
-      additionalProperties: false
 
     RequestPostBandMember:
       description: Request Post Band Member
@@ -345,4 +338,3 @@ components:
         name:
           description: Member name
           type: string
-      additionalProperties: false
