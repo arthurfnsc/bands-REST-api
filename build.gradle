@@ -11,7 +11,7 @@ buildscript {
 		owaspCheckVersion = '5.0.0-M2'
 		sonarqubeVersion = '2.7'
 		springBootVersion = '2.1.4.RELEASE'
-		swaggerGeneratorVersion = '2.18.0'
+		swaggerGeneratorVersion = '2.18.1'
 		versionsVersion = '0.21.0'
 
 		kotlinArtifacts = [
@@ -109,9 +109,9 @@ ext {
 	]
 
 	mapstructVersion = '1.2.0.Final'
+	openAPICodeGenVersion = '4.0.0'
 	springFoxVersion = '2.9.2'
-	swaggerCodeGenVersion = '3.3.4'
-	swaggerUIVersion = '3.10.0'
+	swaggerUIVersion = '3.22.1'
 }
 
 dependencies {
@@ -148,7 +148,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
 
-	swaggerCodegen "org.openapitools:openapi-generator-cli:$swaggerCodeGenVersion"
+	swaggerCodegen "org.openapitools:openapi-generator-cli:$openAPICodeGenVersion"
 	swaggerUI "org.webjars:swagger-ui:$swaggerUIVersion"
 }
 
