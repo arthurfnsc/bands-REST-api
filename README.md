@@ -39,6 +39,18 @@
 
 [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) API First, Spring Boot, Kotlin and [![Gradle Status](https://gradleupdate.appspot.com/arthurfnsc/bands-REST-api/status.svg)](https://gradleupdate.appspot.com/arthurfnsc/bands-REST-api/status) project
 
+In order to enable Google OAuth2 configuration follow this [article](https://medium.com/@pablo127/google-api-authentication-with-oauth-2-on-the-example-of-gmail-a103c897fd98) and set GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET variables in your environment. 
+Following a Linux example:
+```console
+foo@bar:~$ export GOOGLE_CLIENT_ID=<your Google Client Id Application>
+foo@bar:~$ export GOOGLE_CLIENT_SECRET=<your Google Client Secret Application>
+```
+To validate your variables:
+```console
+foo@bar:~$ echo $GOOGLE_CLIENT_ID
+foo@bar:~$ echo $GOOGLE_CLIENT_SECRET
+```
+
 ## Project execution
 
 ### Clone

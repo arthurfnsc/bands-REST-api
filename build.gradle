@@ -10,7 +10,7 @@ buildscript {
 		ossIndexVersion = '0.4.11'
 		owaspCheckVersion = '5.0.0-M2'
 		sonarqubeVersion = '2.7'
-		springBootVersion = '2.1.4.RELEASE'
+		springBootVersion = '2.1.7.RELEASE'
 		swaggerGeneratorVersion = '2.18.1'
 		versionsVersion = '0.21.0'
 
@@ -63,11 +63,11 @@ apply from: 'plugins/spring-boot.gradle'
 apply from: 'plugins/swagger.gradle'
 
 group = 'br.com.arthurfnsc'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 wrapper {
-	gradleVersion = '5.4.1'
+	gradleVersion = '5.6.1'
 }
 
 configurations {
@@ -84,7 +84,7 @@ repositories {
 
 ext {
 
-	set('springBootAdminVersion', '2.1.4')
+	set('springBootAdminVersion', '2.1.5')
 
 	codecentricImplementationArtifacs = [
 	        'spring-boot-admin-starter-client',
@@ -97,11 +97,11 @@ ext {
 	]
 
 	springBootImplementationArtifacs = [
-			'spring-boot-starter-actuator',
-			'spring-boot-starter-aop',
-			'spring-boot-starter-cache',
-			'spring-boot-starter-security',
-			'spring-boot-starter-web'
+            'spring-boot-starter-actuator',
+            'spring-boot-starter-aop',
+            'spring-boot-starter-cache',
+            'spring-boot-starter-security',
+            'spring-boot-starter-web'
 	]
 
 	springFoxArtifacts = [
@@ -122,8 +122,6 @@ ext {
 }
 
 dependencies {
-
-	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
 	detekt "io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion"
 
@@ -152,8 +150,10 @@ dependencies {
 	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
 	implementation "org.mapstruct:mapstruct-jdk8:$mapstructVersion"
 	implementation "org.openapitools:jackson-databind-nullable:$openAPIJacksonVersion"
+    implementation "org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:$springBootVersion"
 
 	kapt "org.mapstruct:mapstruct-processor:$mapstructVersion"
+    kapt 'org.springframework.boot:spring-boot-configuration-processor'
 
 	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
 
