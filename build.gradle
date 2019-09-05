@@ -63,11 +63,11 @@ apply from: 'plugins/spring-boot.gradle'
 apply from: 'plugins/swagger.gradle'
 
 group = 'br.com.arthurfnsc'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 wrapper {
-	gradleVersion = '5.4.1'
+	gradleVersion = '5.6.1'
 }
 
 configurations {
@@ -84,7 +84,7 @@ repositories {
 
 ext {
 
-	set('springBootAdminVersion', '2.1.4')
+	set('springBootAdminVersion', '2.1.5')
 
 	codecentricImplementationArtifacs = [
 	        'spring-boot-admin-starter-client',
@@ -97,10 +97,11 @@ ext {
 	]
 
 	springBootImplementationArtifacs = [
-			'spring-boot-starter-actuator',
-			'spring-boot-starter-aop',
-			'spring-boot-starter-cache',
-			'spring-boot-starter-web'
+            'spring-boot-starter-actuator',
+            'spring-boot-starter-aop',
+            'spring-boot-starter-cache',
+            'spring-boot-starter-security',
+            'spring-boot-starter-web'
 	]
 
 	springFoxArtifacts = [
@@ -108,16 +109,20 @@ ext {
 			'springfox-swagger-ui'
 	]
 
+	springSecurityImplementationArtifacts = [
+			'spring-security-oauth2-client',
+			'spring-security-oauth2-jose'
+	]
+
 	mapstructVersion = '1.2.0.Final'
 	openAPICodeGenVersion = '4.0.0'
 	openAPIJacksonVersion = '0.1.0'
 	springFoxVersion = '2.9.2'
+	springSecurityVersion = '4.1.1.RELEASE'
 	swaggerUIVersion = '3.22.1'
 }
 
 dependencies {
-
-	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
 	detekt "io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion"
 
@@ -139,11 +144,18 @@ dependencies {
 		artifact -> implementation "io.springfox:$artifact:$springFoxVersion"
 	}
 
+	springSecurityImplementationArtifacts.each {
+		artifact -> implementation "org.springframework.security:$artifact"
+	}
+
 	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
 	implementation "org.mapstruct:mapstruct-jdk8:$mapstructVersion"
 	implementation "org.openapitools:jackson-databind-nullable:$openAPIJacksonVersion"
+    implementation "org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:$springBootVersion"
+	implementation "org.springframework.security:spring-security-config:$springSecurityVersion"
 
 	kapt "org.mapstruct:mapstruct-processor:$mapstructVersion"
+    kapt 'org.springframework.boot:spring-boot-configuration-processor'
 
 	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
 
