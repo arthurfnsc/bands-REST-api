@@ -6,13 +6,18 @@ servers:
   - url: '{server}'
     variables:
       server:
-        default: https://api.example.com
+        default: "https://localhost:8080"
 paths:
   /v1/bands:
     get:
       summary: Retrieve Bands
       description: Retrieve Bands.
       operationId: retrieveBands
+      security:
+        - oAuth2AuthCode:
+            - email
+            - openid
+            - profile
       responses:
         '200':
           description: ok
@@ -38,6 +43,11 @@ paths:
       summary: Create Band
       description: Create Band.
       operationId: createBand
+      security:
+        - oAuth2AuthCode:
+            - email
+            - openid
+            - profile
       requestBody:
         description: Band creations params.
         required: true
@@ -70,6 +80,11 @@ paths:
       summary: Delete Band
       description: Delete Band.
       operationId: deleteBand
+      security:
+        - oAuth2AuthCode:
+            - email
+            - openid
+            - profile
       parameters:
         - in: path
           name: band_id
@@ -97,6 +112,11 @@ paths:
       summary: Update Band
       description: Update Band.
       operationId: updateBand
+      security:
+        - oAuth2AuthCode:
+            - email
+            - openid
+            - profile
       parameters:
         - in: path
           name: band_id
@@ -137,6 +157,11 @@ paths:
       summary: Create Band Member
       description: Create Band Member.
       operationId: createBandMember
+      security:
+        - oAuth2AuthCode:
+            - email
+            - openid
+            - profile
       parameters:
         - in: path
           name: band_id
@@ -177,6 +202,11 @@ paths:
       summary: Delete Band Member
       description: Delete Band Member.
       operationId: deleteBandMember
+      security:
+        - oAuth2AuthCode:
+            - email
+            - openid
+            - profile
       parameters:
         - in: path
           name: band_id
@@ -213,6 +243,46 @@ paths:
                 $ref: '#/components/schemas/Error'
 
 components:
+  securitySchemes:
+    oAuth2AuthCode:
+      type: oauth2
+      description: For more information, see https://developers.google.com/identity/protocols/OAuth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://www.googleapis.com/oauth2/v4/token
+          scopes:
+            email: >-
+              This scope requests that your app be given access to
+
+              1) the user's Google account email address. You access the email address
+              by calling people.get, which returns the emails array (or by calling
+              people.getOpenIdConnect, which returns the email property in
+              OIDC-compliant format);
+
+
+              2) the name of the Google Apps domain, if any, that the user belongs to.
+              The domain name is returned as the domain property from people.get (or
+              hd property from getOpenIdConnect).
+            openid: >-
+              This scope informs the authorization server that the client is making an
+              OpenID Connect request, and requests access to the authenticated user’s
+              ID. You must include this scope with the other OpenID Connect scopes.
+
+              The getOpenIdConnect method returns the user's profile in OIDC-compliant
+              format—use the following HTTP request path
+              'https://www.googleapis.com/plus/v1/people/me/openIdConnect'
+            profile: >-
+              This is the basic login scope. This scope does the following
+
+              1) It requests that your app be given access to the authenticated user's
+              basic profile information;
+
+              2) It lets you know who the currently authenticated user is by letting
+              you replace a Google+ user ID with 'me', which represents the
+              authenticated user, in any call to the Google+ API;
+
+              3) It lets your web app access over-the-air Android app installs.
   schemas:
     Band:
       description: Band

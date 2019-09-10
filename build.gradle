@@ -1,53 +1,53 @@
 buildscript {
 
-	ext {
-		aptVersion = '0.21'
-		detektVersion = '1.0.0.RC8'
-		dokkaVersion = '0.9.18'
-		kotlinVersion = '1.3.31'
-		kotlinterVersion = '1.25.0'
-		ktlintVersion = '4.1.0'
-		ossIndexVersion = '0.4.11'
-		owaspCheckVersion = '5.0.0-M2'
-		sonarqubeVersion = '2.7'
-		springBootVersion = '2.1.7.RELEASE'
-		swaggerGeneratorVersion = '2.18.1'
-		versionsVersion = '0.21.0'
+    ext {
+        aptVersion = '0.21'
+        detektVersion = '1.0.0.RC8'
+        dokkaVersion = '0.9.18'
+        kotlinVersion = '1.3.31'
+        kotlinterVersion = '1.25.0'
+        ktlintVersion = '4.1.0'
+        ossIndexVersion = '0.4.11'
+        owaspCheckVersion = '5.0.0-M2'
+        sonarqubeVersion = '2.7'
+        springBootVersion = '2.1.7.RELEASE'
+        swaggerGeneratorVersion = '2.18.1'
+        versionsVersion = '0.21.0'
 
-		kotlinArtifacts = [
-				'kotlin-allopen',
-				'kotlin-noarg',
-				'kotlin-gradle-plugin'
-		]
-	}
+        kotlinArtifacts = [
+            'kotlin-allopen',
+            'kotlin-noarg',
+            'kotlin-gradle-plugin'
+        ]
+    }
 
-	repositories {
-		
-		maven {
-			url "https://plugins.gradle.org/m2/"
-		}
-		
-		jcenter()
-	}
+    repositories {
+        
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        
+        jcenter()
+    }
 
-	dependencies {
+    dependencies {
 
-		kotlinArtifacts.each {
-			artifact -> classpath "org.jetbrains.kotlin:$artifact:$kotlinVersion"
-		}
+        kotlinArtifacts.each {
+            artifact -> classpath "org.jetbrains.kotlin:$artifact:$kotlinVersion"
+        }
 
-		classpath "com.github.ben-manes:gradle-versions-plugin:$versionsVersion"
-		classpath "gradle.plugin.net.ossindex:ossindex-gradle-plugin:$ossIndexVersion"
-		classpath "gradle.plugin.io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detektVersion"
-		classpath "gradle.plugin.org.hidetake:gradle-swagger-generator-plugin:$swaggerGeneratorVersion"
-		classpath "gradle.plugin.org.jlleitschuh.gradle:ktlint-gradle:$ktlintVersion"
-		classpath "net.ltgt.gradle:gradle-apt-plugin:$aptVersion"
-		classpath "org.jetbrains.dokka:dokka-gradle-plugin:$dokkaVersion"
-		classpath "org.jmailen.gradle:kotlinter-gradle:$kotlinterVersion"
-		classpath "org.owasp:dependency-check-gradle:$owaspCheckVersion"
-		classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:$sonarqubeVersion"
-		classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
-	}
+        classpath "com.github.ben-manes:gradle-versions-plugin:$versionsVersion"
+        classpath "gradle.plugin.net.ossindex:ossindex-gradle-plugin:$ossIndexVersion"
+        classpath "gradle.plugin.io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detektVersion"
+        classpath "gradle.plugin.org.hidetake:gradle-swagger-generator-plugin:$swaggerGeneratorVersion"
+        classpath "gradle.plugin.org.jlleitschuh.gradle:ktlint-gradle:$ktlintVersion"
+        classpath "net.ltgt.gradle:gradle-apt-plugin:$aptVersion"
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:$dokkaVersion"
+        classpath "org.jmailen.gradle:kotlinter-gradle:$kotlinterVersion"
+        classpath "org.owasp:dependency-check-gradle:$owaspCheckVersion"
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:$sonarqubeVersion"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+    }
 }
 
 apply from: 'plugins/kotlin.gradle'
@@ -67,107 +67,105 @@ version = '0.0.2-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 wrapper {
-	gradleVersion = '5.6.1'
+    gradleVersion = '5.6.1'
 }
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
 
-	jcenter()
-	mavenCentral()
+    jcenter()
+    mavenCentral()
 }
 
 ext {
 
-	set('springBootAdminVersion', '2.1.5')
+    set('springBootAdminVersion', '2.1.5')
 
-	codecentricImplementationArtifacs = [
-	        'spring-boot-admin-starter-client',
-			'spring-boot-admin-starter-server'
-	]
+    codecentricImplementationArtifacs = [
+        'spring-boot-admin-starter-client',
+        'spring-boot-admin-starter-server'
+    ]
 
-	kotlinImplementationArtifacts = [
-	        'kotlin-reflect',
-			'kotlin-stdlib-jdk8'
-	]
+    kotlinImplementationArtifacts = [
+        'kotlin-reflect',
+        'kotlin-stdlib-jdk8'
+    ]
 
-	springBootImplementationArtifacs = [
-            'spring-boot-starter-actuator',
-            'spring-boot-starter-aop',
-            'spring-boot-starter-cache',
-            'spring-boot-starter-security',
-            'spring-boot-starter-web'
-	]
+    springBootImplementationArtifacs = [
+        'spring-boot-starter-actuator',
+        'spring-boot-starter-aop',
+        'spring-boot-starter-cache',
+        'spring-boot-starter-security',
+        'spring-boot-starter-web'
+    ]
 
-	springFoxArtifacts = [
-			'springfox-swagger2',
-			'springfox-swagger-ui'
-	]
+    springFoxArtifacts = [
+        'springfox-swagger2',
+        'springfox-swagger-ui'
+    ]
 
-	springSecurityImplementationArtifacts = [
-			'spring-security-oauth2-client',
-			'spring-security-oauth2-jose'
-	]
+    springSecurityImplementationArtifacts = [
+        'spring-security-oauth2-client',
+        'spring-security-oauth2-jose'
+    ]
 
-	mapstructVersion = '1.2.0.Final'
-	openAPICodeGenVersion = '4.0.0'
-	openAPIJacksonVersion = '0.1.0'
-	springFoxVersion = '2.9.2'
-	springSecurityVersion = '4.1.1.RELEASE'
-	swaggerUIVersion = '3.22.1'
+    mapstructVersion = '1.2.0.Final'
+    openAPICodeGenVersion = '4.0.0'
+    openAPIJacksonVersion = '0.1.0'
+    springFoxVersion = '2.9.2'
+    springSecurityVersion = '4.1.1.RELEASE'
+    swaggerUIVersion = '3.22.1'
 }
 
 dependencies {
 
-	detekt "io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion"
+    detekt "io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion"
 
-	dokkaRuntime "org.jetbrains.dokka:dokka-fatjar:$dokkaVersion"
+    dokkaRuntime "org.jetbrains.dokka:dokka-fatjar:$dokkaVersion"
 
-	codecentricImplementationArtifacs.each {
-		artifact -> implementation "de.codecentric:$artifact"
-	}
+    codecentricImplementationArtifacs.each {
+        artifact -> implementation "de.codecentric:$artifact"
+    }
 
-	kotlinImplementationArtifacts.each {
-		artifact -> implementation "org.jetbrains.kotlin:$artifact"
-	}
+    kotlinImplementationArtifacts.each {
+        artifact -> implementation "org.jetbrains.kotlin:$artifact"
+    }
 
-	springBootImplementationArtifacs.each {
-		artifact -> implementation "org.springframework.boot:$artifact"
-	}
+    springBootImplementationArtifacs.each {
+        artifact -> implementation "org.springframework.boot:$artifact"
+    }
 
-	springFoxArtifacts.each {
-		artifact -> implementation "io.springfox:$artifact:$springFoxVersion"
-	}
+    springFoxArtifacts.each {
+        artifact -> implementation "io.springfox:$artifact:$springFoxVersion"
+    }
 
-	springSecurityImplementationArtifacts.each {
-		artifact -> implementation "org.springframework.security:$artifact"
-	}
+    springSecurityImplementationArtifacts.each {
+        artifact -> implementation "org.springframework.security:$artifact"
+    }
 
-	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
-	implementation "org.mapstruct:mapstruct-jdk8:$mapstructVersion"
-	implementation "org.openapitools:jackson-databind-nullable:$openAPIJacksonVersion"
-    implementation "org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:$springBootVersion"
-	implementation "org.springframework.security:spring-security-config:$springSecurityVersion"
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
+    implementation "org.mapstruct:mapstruct-jdk8:$mapstructVersion"
+    implementation "org.openapitools:jackson-databind-nullable:$openAPIJacksonVersion"
 
-	kapt "org.mapstruct:mapstruct-processor:$mapstructVersion"
+    kapt "org.mapstruct:mapstruct-processor:$mapstructVersion"
     kapt 'org.springframework.boot:spring-boot-configuration-processor'
 
-	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'io.projectreactor:reactor-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
 
-	swaggerCodegen "org.openapitools:openapi-generator-cli:$openAPICodeGenVersion"
-	swaggerUI "org.webjars:swagger-ui:$swaggerUIVersion"
+    swaggerCodegen "org.openapitools:openapi-generator-cli:$openAPICodeGenVersion"
+    swaggerUI "org.webjars:swagger-ui:$swaggerUIVersion"
 }
 
 dependencyManagement {
-	imports {
-		mavenBom "de.codecentric:spring-boot-admin-dependencies:${springBootAdminVersion}"
-	}
+    imports {
+        mavenBom "de.codecentric:spring-boot-admin-dependencies:${springBootAdminVersion}"
+    }
 }

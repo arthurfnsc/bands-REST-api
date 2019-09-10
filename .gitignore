@@ -5,6 +5,8 @@
 /out/
 !gradle/wrapper/gradle-wrapper.jar
 
+*.hprof
+
 ### Android ###
 *.iml
 captures
