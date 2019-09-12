@@ -1,4 +1,4 @@
-package br.com.arthurfnsc.bandsapi.configs.security
+package br.com.arthurfnsc.bandsapi.configs.security.oauth2
 
 import org.springframework.security.oauth2.client.web.AuthorizationRequestRepository
 import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest

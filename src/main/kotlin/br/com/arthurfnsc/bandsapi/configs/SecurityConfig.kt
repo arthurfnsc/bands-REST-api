@@ -1,7 +1,10 @@
 package br.com.arthurfnsc.bandsapi.configs
 
-import br.com.arthurfnsc.bandsapi.configs.security.HttpCookieOAuth2AuthorizationRequestRepository
+import br.com.arthurfnsc.bandsapi.configs.security.oauth2.HttpCookieOAuth2AuthorizationRequestRepository
+import br.com.arthurfnsc.bandsapi.configs.security.oauth2.OAuth2AuthenticationFailureHandler
+import br.com.arthurfnsc.bandsapi.configs.security.oauth2.OAuth2AuthenticationSuccessHandler
 import br.com.arthurfnsc.bandsapi.configs.security.RestAuthenticationEntryPoint
+import br.com.arthurfnsc.bandsapi.configs.security.oauth2.CustomOAuth2UserService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.PropertySource
@@ -20,7 +23,11 @@ import org.springframework.security.config.http.SessionCreationPolicy
 )
 @EnableWebSecurity
 @PropertySource("classpath:application.yml")
-class SecurityConfig : WebSecurityConfigurerAdapter() {
+class SecurityConfig(
+        private val oAuth2UserService: CustomOAuth2UserService,
+        private val failureHandler: OAuth2AuthenticationFailureHandler,
+        private val successHandler: OAuth2AuthenticationSuccessHandler
+) : WebSecurityConfigurerAdapter() {
 
     override fun configure(http: HttpSecurity) {
 
@@ -54,10 +61,10 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
             .baseUri("/oauth2/callback/*")
             .and()
             .userInfoEndpoint()
-            .userService(customOAuth2UserService)
+            .userService(oAuth2UserService)
             .and()
-            .successHandler(oAuth2AuthenticationSuccessHandler)
-            .failureHandler(oAuth2AuthenticationFailureHandler)
+            .successHandler(successHandler)
+            .failureHandler(failureHandler)
     }
 
     @Bean
