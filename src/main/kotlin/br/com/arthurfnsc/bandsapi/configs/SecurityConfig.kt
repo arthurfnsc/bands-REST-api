@@ -24,9 +24,10 @@ import org.springframework.security.config.http.SessionCreationPolicy
 @EnableWebSecurity
 @PropertySource("classpath:application.yml")
 class SecurityConfig(
-        private val oAuth2UserService: CustomOAuth2UserService,
-        private val failureHandler: OAuth2AuthenticationFailureHandler,
-        private val successHandler: OAuth2AuthenticationSuccessHandler
+    private val cookieAuthorizationRequestRepository: HttpCookieOAuth2AuthorizationRequestRepository,
+    private val oAuth2UserService: CustomOAuth2UserService,
+    private val failureHandler: OAuth2AuthenticationFailureHandler,
+    private val successHandler: OAuth2AuthenticationSuccessHandler
 ) : WebSecurityConfigurerAdapter() {
 
     override fun configure(http: HttpSecurity) {
@@ -55,7 +56,7 @@ class SecurityConfig(
             .oauth2Login()
             .authorizationEndpoint()
             .baseUri("/oauth2/authorize")
-            .authorizationRequestRepository(cookieAuthorizationRequestRepository())
+            .authorizationRequestRepository(cookieAuthorizationRequestRepository)
             .and()
             .redirectionEndpoint()
             .baseUri("/oauth2/callback/*")
@@ -65,10 +66,5 @@ class SecurityConfig(
             .and()
             .successHandler(successHandler)
             .failureHandler(failureHandler)
-    }
-
-    @Bean
-    fun cookieAuthorizationRequestRepository(): HttpCookieOAuth2AuthorizationRequestRepository {
-        return HttpCookieOAuth2AuthorizationRequestRepository()
     }
 }

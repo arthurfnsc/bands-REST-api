@@ -158,7 +158,7 @@ dependencies {
     kapt "org.mapstruct:mapstruct-processor:$mapstructVersion"
     kapt 'org.springframework.boot:spring-boot-configuration-processor'
 
-    runtimeOnly 'mysql:mysql-connector-java'
+    runtime 'mysql:mysql-connector-java'
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

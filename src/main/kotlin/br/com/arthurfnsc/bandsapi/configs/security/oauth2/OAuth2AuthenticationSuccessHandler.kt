@@ -12,11 +12,12 @@ import org.springframework.security.oauth2.client.web.reactive.function.client.S
 import org.springframework.web.util.UriComponentsBuilder
 import org.springframework.util.ClassUtils.isPresent
 import br.com.arthurfnsc.bandsapi.utils.CookieUtils
+import org.springframework.stereotype.Component
 import javax.servlet.http.Cookie
 import sun.print.CUPSPrinter.getPort
 import java.net.URI
 
-
+@Component
 class OAuth2AuthenticationSuccessHandler(
     private val tokenProviderService: TokenProviderService,
     private val appProperties: AppProperties,
