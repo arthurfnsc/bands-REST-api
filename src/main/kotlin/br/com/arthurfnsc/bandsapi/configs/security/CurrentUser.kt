@@ -1,4 +1,4 @@
-package br.com.arthurfnsc.bandsapi.configs.security.oauth2.user
+package br.com.arthurfnsc.bandsapi.configs.security
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal
 import java.lang.annotation.Documented

@@ -5,7 +5,6 @@ import br.com.arthurfnsc.bandsapi.converters.MemberMapper
 import br.com.arthurfnsc.bandsapi.services.BandService
 import br.com.arthurfnsc.bandsapi.services.MemberService
 import com.fasterxml.jackson.databind.ObjectMapper
-import java.util.UUID
 import org.openapitools.api.V1Api
 import org.openapitools.model.Band
 import org.openapitools.model.PatchDocument
@@ -15,10 +14,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.RestController
-import org.springframework.security.access.prepost.PreAuthorize
-import org.springframework.web.bind.annotation.GetMapping
-import java.security.Principal
-
+import java.util.*
 
 @CrossOrigin(origins = ["*"])
 @RestController

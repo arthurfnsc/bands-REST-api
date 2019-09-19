@@ -1,13 +1,10 @@
 package br.com.arthurfnsc.bandsapi.configs
 
-import java.util.ArrayList
 import org.springframework.boot.context.properties.ConfigurationProperties
-import org.springframework.stereotype.Component
+import java.util.*
 
 @ConfigurationProperties(prefix = "app")
-@Component
 class AppProperties {
-
     val auth = Auth()
     val oauth2 = OAuth2()
 

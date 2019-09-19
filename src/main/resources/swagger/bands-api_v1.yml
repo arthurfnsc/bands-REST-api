@@ -16,8 +16,8 @@ paths:
       security:
         - oAuth2AuthCode:
             - email
-            - openid
             - profile
+            - openid
       responses:
         '200':
           description: ok
@@ -46,8 +46,8 @@ paths:
       security:
         - oAuth2AuthCode:
             - email
-            - openid
             - profile
+            - openid
       requestBody:
         description: Band creations params.
         required: true
@@ -83,8 +83,8 @@ paths:
       security:
         - oAuth2AuthCode:
             - email
-            - openid
             - profile
+            - openid
       parameters:
         - in: path
           name: band_id
@@ -115,8 +115,8 @@ paths:
       security:
         - oAuth2AuthCode:
             - email
-            - openid
             - profile
+            - openid
       parameters:
         - in: path
           name: band_id
@@ -160,8 +160,8 @@ paths:
       security:
         - oAuth2AuthCode:
             - email
-            - openid
             - profile
+            - openid
       parameters:
         - in: path
           name: band_id
@@ -205,8 +205,8 @@ paths:
       security:
         - oAuth2AuthCode:
             - email
-            - openid
             - profile
+            - openid
       parameters:
         - in: path
           name: band_id
@@ -264,14 +264,6 @@ components:
               2) the name of the Google Apps domain, if any, that the user belongs to.
               The domain name is returned as the domain property from people.get (or
               hd property from getOpenIdConnect).
-            openid: >-
-              This scope informs the authorization server that the client is making an
-              OpenID Connect request, and requests access to the authenticated user’s
-              ID. You must include this scope with the other OpenID Connect scopes.
-
-              The getOpenIdConnect method returns the user's profile in OIDC-compliant
-              format—use the following HTTP request path
-              'https://www.googleapis.com/plus/v1/people/me/openIdConnect'
             profile: >-
               This is the basic login scope. This scope does the following
 
@@ -283,6 +275,14 @@ components:
               authenticated user, in any call to the Google+ API;
 
               3) It lets your web app access over-the-air Android app installs.
+            openid: >-
+              This scope informs the authorization server that the client is making an
+              OpenID Connect request, and requests access to the authenticated user’s
+              ID. You must include this scope with the other OpenID Connect scopes.
+
+              The getOpenIdConnect method returns the user's profile in OIDC-compliant
+              format—use the following HTTP request path
+              'https://www.googleapis.com/plus/v1/people/me/openIdConnect'
   schemas:
     Band:
       description: Band

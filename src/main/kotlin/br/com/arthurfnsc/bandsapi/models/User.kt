@@ -11,7 +11,8 @@ data class User(
 
     @Id
     var id: Long? = null,
-
     var name: String,
-    var email: String
+    var email: String,
+    var image: String,
+    var password: String? = null
 ): Serializable

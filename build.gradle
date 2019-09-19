@@ -115,7 +115,7 @@ ext {
         'spring-security-oauth2-jose'
     ]
 
-    jjwtVersion = '0.9.1'
+    jjwtVersion = '0.5.1'
     mapstructVersion = '1.2.0.Final'
     openAPICodeGenVersion = '4.0.0'
     openAPIJacksonVersion = '0.1.0'

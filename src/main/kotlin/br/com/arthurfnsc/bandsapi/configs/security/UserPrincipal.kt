@@ -2,50 +2,26 @@ package br.com.arthurfnsc.bandsapi.configs.security
 
 import br.com.arthurfnsc.bandsapi.models.User
 import org.springframework.security.core.GrantedAuthority
+import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.oauth2.core.user.OAuth2User
-import org.springframework.security.core.authority.SimpleGrantedAuthority
 import java.util.*
 
+
 class UserPrincipal(
-        val id: Long?,
-        private val email: String,
-        private val password: String?,
-        private val authorities: Collection<GrantedAuthority>
-): OAuth2User, UserDetails {
+    private val id: Long?,
+    private val email: String?,
+    private val password: String?,
+    private val authorities: Collection<GrantedAuthority>?
+) : OAuth2User, UserDetails {
 
-    companion object{
+    private var attributes: Map<String, Any>? = null
 
-        fun create(user: User): UserPrincipal {
-
-            val authorities = Collections.singletonList(SimpleGrantedAuthority("ROLE_USER"))
-
-            return UserPrincipal(
-                    user.id,
-                    user.email,
-                    null,
-                    authorities
-            )
-        }
-
-        fun create(user: User, attributes: MutableMap<String, Any>): UserPrincipal {
-            val userPrincipal = create(user)
-            userPrincipal.setAttributes(attributes)
-            return userPrincipal
-        }
-    }
-
-    private lateinit var attributes: MutableMap<String, Any>
-
-    override fun getAttributes(): MutableMap<String, Any> = this.attributes
-
-    override fun getAuthorities(): Collection<GrantedAuthority> = this.authorities
-
-    override fun getName(): String = id.toString()
+    fun getId(): Long? = this.id
 
     override fun getPassword(): String? = this.password
 
-    override fun getUsername(): String = this.email
+    override fun getUsername(): String? =this.email
 
     override fun isAccountNonExpired(): Boolean = true
 
@@ -55,7 +31,33 @@ class UserPrincipal(
 
     override fun isEnabled(): Boolean = true
 
-    fun setAttributes(attributes: MutableMap<String, Any>) {
+    override fun getAuthorities(): Collection<GrantedAuthority>? = this.authorities
+
+    override fun getAttributes(): Map<String, Any>? = this.attributes
+
+    fun setAttributes(attributes: Map<String, Any>) {
         this.attributes = attributes
+    }
+
+    override fun getName(): String = id.toString()
+
+    companion object {
+
+        fun create(user: User): UserPrincipal {
+            val authorities = Collections.singletonList(SimpleGrantedAuthority("ROLE_USER"))
+
+            return UserPrincipal(
+                user.id,
+                user.email,
+                user.password!!,
+                authorities
+            )
+        }
+
+        fun create(user: User, attributes: Map<String, Any>): UserPrincipal {
+            val userPrincipal = UserPrincipal.create(user)
+            userPrincipal.setAttributes(attributes)
+            return userPrincipal
+        }
     }
 }
