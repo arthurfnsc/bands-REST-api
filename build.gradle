@@ -8,7 +8,7 @@ buildscript {
 		kotlinterVersion = '1.25.0'
 		ktlintVersion = '4.1.0'
 		ossIndexVersion = '0.4.11'
-		owaspCheckVersion = '5.0.0-M2'
+		owaspCheckVersion = '5.2.3'
 		sonarqubeVersion = '2.7'
 		springBootVersion = '2.1.7.RELEASE'
 		swaggerGeneratorVersion = '2.18.1'
