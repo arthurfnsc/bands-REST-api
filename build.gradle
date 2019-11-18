@@ -9,7 +9,7 @@ buildscript {
 		ktlintVersion = '4.1.0'
 		ossIndexVersion = '0.4.11'
 		owaspCheckVersion = '5.0.0-M2'
-		sonarqubeVersion = '2.7'
+		sonarqubeVersion = '2.8.0.1969'
 		springBootVersion = '2.1.7.RELEASE'
 		swaggerGeneratorVersion = '2.18.1'
 		versionsVersion = '0.21.0'
