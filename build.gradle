@@ -110,7 +110,7 @@ ext {
 
 	mapstructVersion = '1.3.0.Final'
 	openAPICodeGenVersion = '4.0.0'
-	openAPIJacksonVersion = '0.1.0'
+	openAPIJacksonVersion = '0.2.1'
 	springFoxVersion = '2.9.2'
 	swaggerUIVersion = '3.22.1'
 }
