@@ -6,7 +6,7 @@ buildscript {
 		dokkaVersion = '0.9.18'
 		kotlinVersion = '1.3.31'
 		kotlinterVersion = '1.25.0'
-		ktlintVersion = '4.1.0'
+		ktlintVersion = '6.2.1'
 		ossIndexVersion = '0.4.11'
 		owaspCheckVersion = '5.0.0-M2'
 		sonarqubeVersion = '2.7'
