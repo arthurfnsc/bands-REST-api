@@ -5,7 +5,7 @@ buildscript {
 		detektVersion = '1.0.0.RC9.2'
 		dokkaVersion = '0.9.18'
 		kotlinVersion = '1.3.31'
-		kotlinterVersion = '1.25.0'
+		kotlinterVersion = '3.1.0'
 		ktlintVersion = '4.1.0'
 		ossIndexVersion = '0.4.11'
 		owaspCheckVersion = '5.0.0-M2'
